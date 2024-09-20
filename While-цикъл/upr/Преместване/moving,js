@@ -1,0 +1,33 @@
+function moving(input){
+    let index = 0;
+    let width = Number(input[index]);
+    index++;
+    let height = Number(input[index]);
+    index++;
+    let length = Number(input[index]);
+    index++;
+    
+    let volume = width * height * length; 
+
+    let command = input[index];
+    index++;
+
+    while(command !== "Done"){
+        let curentBox = Number(command);
+        volume -= curentBox;
+        if(volume <= 0){
+            break;
+        }
+
+        command = input[index];
+        index++;
+
+
+    }
+
+    if(volume >= 0){
+        console.log(`${volume} Cubic meters left.`);
+    } else {
+        console.log(`No more free space! You need ${Math.abs(volume)} Cubic meters more.`);
+    }
+}
